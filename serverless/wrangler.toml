@@ -1,0 +1,6 @@
+name = "serverless"
+main = "src/index.ts"
+compatibility_date = "2023-01-31"
+
+[triggers]
+crons = [ "1 * * * *" ]
