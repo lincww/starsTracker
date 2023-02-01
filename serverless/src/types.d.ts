@@ -4,4 +4,5 @@ type User = {
   authPass?: String
 }
 
+type LastestStars = []
 export {User}

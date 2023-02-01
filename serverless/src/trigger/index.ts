@@ -6,7 +6,8 @@ const trigger = async (env: Env): Promise<void> => {
   const userInfos = await KV.get<Array<User>>("userInfo", "json")
   if (!userInfos) return
   for (const user of userInfos) {
-    const lastStars = KV.get(`${f}`)
+    const lastStars = await KV.get<Array>(`lastestStars:${user.name}`,"json")
+    if 
     const headers = {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${user.token}`,
@@ -19,7 +20,7 @@ const trigger = async (env: Env): Promise<void> => {
       const resp = await fetch(`https://api.github.com/user/starred?per_page=100&page=${page}`, {headers})
       const data = resp.json
       stars.push(data)
-      if (data.length !== 100) is_end = true
+      if (data.length < 100) is_end = true
     }
   }
 }
