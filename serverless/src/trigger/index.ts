@@ -71,7 +71,9 @@ const trigger = async (env: Env): Promise<void> => {
     const UTCDateString = `${date.getUTCFullYear()}-${date.getUTCMonth()}-${date.getUTCDate()}`
     const diffNow = await KV.get(`diff:${user.name}:${UTCDateString}`, "json")
     if (!diffNow) {
-      await KV.put(`diff:${user.name}:${UTCDateString}`, JSON.stringify([newAdded, newDeleted]))
+      if (newAdded.length+newDeleted.length>0) {
+        await KV.put(`diff:${user.name}:${UTCDateString}`, JSON.stringify([newAdded, newDeleted]))
+      }
       await KV.put(`latestStars:${user.name}`, JSON.stringify(newStars))
       console.log(`Success get the diff for user: ${user.name}, having ${newAdded.length} added, ${newDeleted.length} deleted.`)
     } else {
