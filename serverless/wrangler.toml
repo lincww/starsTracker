@@ -1,6 +1,10 @@
-name = "serverless"
+name = "starstracker"
 main = "src/index.ts"
 compatibility_date = "2023-01-31"
+kv_namespaces = [
+  { binding = "starsTrackerKV", id = "ed6c1e769e0740e9892bb0512dcc93cc", preview_id = "a30201dba37b4a1ea8fd9223c3359859" }
+]
 
 [triggers]
-crons = [ "1 * * * *" ]
+crons = [ "0 1 * * *" ]
+

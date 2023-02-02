@@ -9,6 +9,8 @@ type Star = {
   name: String,
   fullName: String,
   description: String,
+  topics: String[],
+  language: String,
   counts: {
     openIssues: Number,
     subscribers: Number,
@@ -22,7 +24,6 @@ type Star = {
   owner: {
     id: Number,
     avatar_url: String,
-
   }
 }
 
