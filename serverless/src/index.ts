@@ -39,6 +39,6 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
-    return router(request)
+    return router(request, env)
   },
 };
