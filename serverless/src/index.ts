@@ -32,7 +32,7 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<void> {
-    await trigger(env)
+    ctx.waitUntil(trigger(env))
   },
   async fetch(
     request: Request,
