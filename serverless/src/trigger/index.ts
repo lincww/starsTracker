@@ -71,7 +71,10 @@ const trigger = async (env: Env): Promise<void> => {
     const diffNow = await KV.get(`diff:${user.name}:${UTCDateString}`, "json")
     if (!diffNow) {
       if (newAdded.length + newDeleted.length > 0) {
-        await KV.put(`diff:${user.name}:${UTCDateString}`, JSON.stringify([newAdded, newDeleted]))
+        await KV.put(`diff:${user.name}:${UTCDateString}`,
+          JSON.stringify([newAdded, newDeleted]),
+          {metadata: [newAdded.length, newDeleted.length]}
+        )
       }
       await KV.put(`latestStars:${user.name}`, JSON.stringify(newStars))
       console.log(`Success get the diff for user: ${user.name}, having ${newAdded.length} added, ${newDeleted.length} deleted.`)

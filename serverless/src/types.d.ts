@@ -1,29 +1,29 @@
 type User = {
-  name: String,
-  token: String,
-  authPass?: String
+  name: string,
+  token: string,
+  authPass?: string
 }
 
 type Star = {
-  starredAt: String,
-  name: String,
-  fullName: String,
-  description: String,
-  topics: String[],
-  language: String,
+  starredAt: string,
+  name: string,
+  fullName: string,
+  description: string,
+  topics: string[],
+  language: string,
   counts: {
     openIssues: Number,
     subscribers: Number,
     watchers: Number,
   },
   dates: {
-    pushed: String,
-    created: String,
-    updated: String,
+    pushed: string,
+    created: string,
+    updated: string,
   },
   owner: {
     id: Number,
-    avatar_url: String,
+    avatar_url: string,
   }
 }
 
